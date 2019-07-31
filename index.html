@@ -12,7 +12,7 @@
   <div id=game>
     <h1>The Psyhic Game</h1>
     <p>Guess What Letter I'm Thinking Of</p>
-    
+
     <p id="wins">Wins:</p>
     <p id="losses">Losses:</p>
     <p id="ties">Ties:</p>
@@ -24,7 +24,7 @@
   <script type="text/javascript">
 
     // Creates an array that lists out all of the options //
-    var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    
     
     // Creating variables to hold the number of wins, losses, and ties. They start at 0 //
     var wins = 0;
@@ -35,7 +35,6 @@
 
     var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 
-
     // Create variables that hold references to the places in the HTML where we want to display things //
     var wins = document.getElementById("wins");
     var losses = document.getElementById("losses");
@@ -44,23 +43,34 @@
     var guessesSoFar = document.getElementById("guesses-so-far");
 
     document.onkeyup = function(event) {
-
      var userGuess = event.key;
-
      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+     var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    
 
+      console.log(userGuess);
+    }
 
+      if (options.indexOf(userGuess) > -1) {
 
+      if (userGuess === computerGuess) {
+      wins++;
+      numGuesses = 9;
+      guessChoices = [];
+}
 
+      if (userGuess != computerGuess) {
+      numGuesses --;
+      guessChoices.push(userGuess);
+}
 
+      if (numGuesses === 0) {
 
-  }
-
-
-
-
-
-  </script>
+      numGuesses = 9;
+      losses ++;
+      guessChoices = [];
+      }
+      }
+</script>
 </body>
-
 </html>
