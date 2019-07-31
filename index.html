@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Psychic Game</title>
 </head>
+
 <body>
-    <div id=game>
+  <div id=game>
     <h1>The Psyhic Game</h1>
     <p>Guess What Letter I'm Thinking Of</p>
-
+    
     <p id="wins">Wins:</p>
     <p id="losses">Losses:</p>
     <p id="ties">Ties:</p>
@@ -18,33 +20,47 @@
     <p id="guesses-so-far">Your Guesses So Far:</p>
    
   </div>
-​
+  ​
   <script type="text/javascript">
+
     // Creates an array that lists out all of the options //
     var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-​
+    
     // Creating variables to hold the number of wins, losses, and ties. They start at 0 //
     var wins = 0;
     var losses = 0;
     var ties = 0;
     var guessesLeft = 10;
-    var guessesSoFar = 0;
-​
+    var guessesSoFar = [];
+
+    var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
+
+
     // Create variables that hold references to the places in the HTML where we want to display things //
     var wins = document.getElementById("wins");
     var losses = document.getElementById("losses");
     var ties = document.getElementById("ties");
     var guessesLeft = document.getElementById("guesses-left");
     var guessesSoFar = document.getElementById("guesses-so-far");
-}
 
-var randomLetter = function () {
-		randomLetter = options[Math.floor(Math.random()*options.length)]
-		console.log(randomLetter);
-		return randomLetter
-	}	
+    document.onkeyup = function(event) {
+
+     var userGuess = event.key;
+
+     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
 
 
-</script>
+
+
+
+
+  }
+
+
+
+
+
+  </script>
 </body>
+
 </html>
