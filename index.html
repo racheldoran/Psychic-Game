@@ -11,66 +11,63 @@
 <body>
   <div id=game>
     <h1>The Psyhic Game</h1>
-    <p>Guess What Letter I'm Thinking Of</p>
+    <p>Guess what letter I'm thinking of!</p>
+    <p>Wins:</p>
+    <p>Losses:</p>
+    <p>Guesses Left:</p>
+    <p>Your Guesses so far:</p>
 
-    <p id="wins">Wins:</p>
-    <p id="losses">Losses:</p>
-    <p id="ties">Ties:</p>
-    <p id="guesses-left">Guesses Left:</p>
-    <p id="guesses-so-far">Your Guesses So Far:</p>
-   
+
+
   </div>
   ​
   <script type="text/javascript">
 
-    // Creates an array that lists out all of the options //
-    
-    
-    // Creating variables to hold the number of wins, losses, and ties. They start at 0 //
     var wins = 0;
     var losses = 0;
-    var ties = 0;
     var guessesLeft = 10;
     var guessesSoFar = [];
 
     var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 
-    // Create variables that hold references to the places in the HTML where we want to display things //
-    var wins = document.getElementById("wins");
-    var losses = document.getElementById("losses");
-    var ties = document.getElementById("ties");
-    var guessesLeft = document.getElementById("guesses-left");
-    var guessesSoFar = document.getElementById("guesses-so-far");
+    document.onkeyup = function (event) {
+      var userGuess = event.key;
 
-    document.onkeyup = function(event) {
-     var userGuess = event.key;
-     var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-     var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
-      console.log(userGuess);
     }
 
       if (options.indexOf(userGuess) > -1) {
-
+      
       if (userGuess === computerGuess) {
-      wins++;
-      numGuesses = 9;
-      guessChoices = [];
-}
+        wins++;
+        guessesLeft = 10;
+        guessesSoFar = [];
+      }
 
       if (userGuess != computerGuess) {
-      numGuesses --;
-      guessChoices.push(userGuess);
-}
-
-      if (numGuesses === 0) {
-
-      numGuesses = 9;
-      losses ++;
-      guessChoices = [];
+        guessesLeft--;
+        guessesSoFar.push(userGuess);
       }
+
+      if (guessesLeft === 0) {
+
+        guessesLeft = 10;
+        losses++;
+        guessesSoFar = [];
       }
-</script>
+
+      var html =
+        "<h1> The Psychic Game </h1>" +
+        "<p>Guess what letter I'm thinking of!</p>" +
+        "<p>Wins: " + wins + "</p>" +
+        "<p>Losses: " + losses + "</p>" +
+        "<p>Guesses Left: " + guessesLeft + "</p>" +
+        "<p>Your Guesses so far: " + guessesSoFar.join(", ") + "</p>";
+
+    }
+  </script>
 </body>
+
 </html>
