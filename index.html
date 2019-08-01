@@ -5,85 +5,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  
   <title>Psychic Game</title>
 </head>
 
+
 <body>
-  <div id=game>
+  
+<html>
+  <div id="game">
+      <script type="text/javascript" src="assets/javascript/game.js">
+        </script>
+
     <h1>The Psyhic Game</h1>
     <p>Guess what letter I'm thinking of!</p>
-    <p id=wins>Wins:</p>
-    <p id=losses>Losses:</p>
-    <p id=guesses-left>Guesses Left:</p>
-    <p id=guesses-so-far>Your Guesses so far:</p>
+    <p id ="wins">Wins:</p>
+    <p id = "losses">Losses:</p>
+    <p id="guesses-left">Guesses Left:</p>
+    <p id = guesses-so-far>Your Guesses so far:</p>
+
+    
 
 
 
   </div>
-  ​
-  <script type="text/javascript">
-  
 
-    var wins = 0;
-    var losses = 0;
-    var guessesLeft = 10;
-    var guessesSoFar = [];
-
-    var winsPlayer = document.getElementById("wins");
-    var lossesPlayer = document.getElementById("losses");
-    var guessesLeftPlayer = document.getElementById("guesses-left");
-    var guessesFar = document.getElementById("guesses-so-far");
-  
-
-    var html =
-      "<h1> The Psychic Game </h1>" +
-      "<p>Guess what letter I'm thinking of!</p>" +
-      "<p>Wins: " + wins + "</p>" +
-      "<p>Losses: " + losses + "</p>" +
-      "<p>Guesses Left: " + guessesLeft + "</p>" +
-      "<p>Your Guesses so far: " + guessesSoFar.join(", ") + "</p>";
-
-    var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
-    var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-
-    document.onkeyup = function (event) {
-      var userGuess = event.key;
-
-      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-      if (options.indexOf(userGuess) !== -1) {
-        
-        if (userGuess === computerGuess) {
-          wins++;
-          guessesLeft = 9;
-          guessesSoFar = [];
-          winsPlayer.innerText = "Wins: " + wins;
-      
-        }
-
-        if (userGuess !== computerGuess) {
-          guessesLeft--;
-          guessesSoFar.push(userGuess);
-          lossesPlayer.innerText = "Losses: " + losses;
-        }
-
-        if (guessesLeft === 0) {
-          guessesLeft = 9;
-          losses++;
-          guessesSoFar = [];
-          guessesLeftPlayer.innerText = "Guesses Left: " + guessesLeft;
-          guessesFar.innerText = "Guesses So Far: " + guessesFar;
-          
-         
-
-        }
-      }
-
-    }
-
-
-
-  </script>
 </body>
-
 </html>
