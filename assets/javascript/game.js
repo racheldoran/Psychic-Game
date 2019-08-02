@@ -36,7 +36,6 @@ document.onkeyup = function (event) {
       guessesSoFar.push(userGuess);
       
       guessesSoFar.innertext = "Your Guesses So Far: " + guessesSoFar;
-      
     }
 
     if (guessesLeft === 0) {
