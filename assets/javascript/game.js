@@ -2,7 +2,7 @@
 
 var wins = 0;
 var losses = 0;
-var guessesLeft = 10;
+var guessesLeft = 9;
 var guessesSoFar = [];
 
 var winsPlayer = document.getElementById("wins");
@@ -12,8 +12,6 @@ var guessesFar = document.getElementById("guesses-so-far");
 
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-
 
 
 document.onkeyup = function (event) {
@@ -33,16 +31,18 @@ document.onkeyup = function (event) {
     if (userGuess !== computerGuess) {
       guessesLeft--;
       guessesSoFar.push(userGuess);
-      lossesPlayer.innerText = "Losses: " + losses;
+      
+      guessesSoFar.innertext = "Your Guesses So Far: " + guessesSoFar;
     }
 
     if (guessesLeft === 0) {
       guessesLeft = 9;
       losses++;
       guessesSoFar = [];
+      lossesPlayer.innerText = "Losses: " + losses;
       guessesLeftPlayer.innerText = "Guesses Left: " + guessesLeft;
       
-      guessesSoFar.innertext = "Your Guesses So Far: " + guessesSoFar;
+      
      
 
     }
