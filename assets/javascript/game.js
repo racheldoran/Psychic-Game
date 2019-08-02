@@ -4,13 +4,13 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
 var guessesSoFar = [];
-var computerGuess = [];
 
 
 var winsPlayer = document.getElementById("wins");
 var lossesPlayer = document.getElementById("losses");
 var guessesLeftPlayer = document.getElementById("guesses-left");
 var guessesFar = document.getElementById("guesses-so-far");
+
 
 var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",];
 var options = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -32,10 +32,10 @@ document.onkeyup = function (event) {
 
     }
 
-    if (userGuess !== computerGuess) {
+    if (userGuess != computerGuess) {
       guessesLeft--;
       guessesSoFar.push(userGuess);
-
+      console.log(guessesSoFar);
       guessesSoFar.innertext = "Your Guesses So Far: " + guessesSoFar;
     }
 
@@ -48,5 +48,6 @@ document.onkeyup = function (event) {
 
     }
   }
+
 }
 
