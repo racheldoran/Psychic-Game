@@ -22,20 +22,20 @@ document.onkeyup = function (event) {
   var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
   if (options.indexOf(userGuess) !== -1) {
     console.log(computerGuess[0]);
-    
+
     if (userGuess === computerGuess) {
       wins++;
       guessesLeft = 9;
       guessesSoFar = [];
       winsPlayer.innerText = "Wins: " + wins;
-      console.log(guessesLeft);
-  
+      console.log(guessesSoFar);
+
     }
 
     if (userGuess !== computerGuess) {
       guessesLeft--;
       guessesSoFar.push(userGuess);
-      
+
       guessesSoFar.innertext = "Your Guesses So Far: " + guessesSoFar;
     }
 
@@ -45,13 +45,8 @@ document.onkeyup = function (event) {
       guessesSoFar = [];
       lossesPlayer.innerText = "Losses: " + losses;
       guessesLeftPlayer.innerText = "Guesses Left: " + guessesLeft;
-      
-      
-      
-     
 
     }
   }
-
 }
 
