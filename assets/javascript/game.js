@@ -45,11 +45,7 @@ document.onkeyup = function (event) {
       guessesSoFar = [];
       lossesPlayer.innerText = "Losses: " + losses;
       guessesLeftPlayer.innerText = "Guesses Left: " + guessesLeft;
-
-      var resetGuesses = function () {
-        GuessesLeft = 9; // reset our model
-        document.querySelector("#Guesses").innerHTML = ''; // reset our view
-      }
+      
 
     }
   }
