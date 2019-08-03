@@ -44,7 +44,7 @@ document.onkeyup = function (event) {
   }
   winsPlayer.innerHTML = "Wins: " + wins;
   lossesPlayer.innerHTML = "Losses: " + losses;
-  guessesLeftPlayer.innerHTML = "GuessLeft: " + guessesLeft;
+  guessesLeftPlayer.innerHTML = "Guesses Left: " + guessesLeft;
   guessesRemaining.innerHTML = "Your Guesses So Far: " + guessesSoFar;
 
 }
