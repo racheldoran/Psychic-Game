@@ -20,37 +20,58 @@ var guessesFar = document.getElementById("guesses-so-far");
 
 document.onkeyup = function (event) {
   var userGuess = event.key;
+  // console.log(userGuess);
 
   var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
-  if (options.indexOf(userGuess) !== -1) {
-    console.log(computerGuess[0]);
+  console.log('computer guess',computerGuess);
+
+  // if(computerGuess === userGuess){
+  //   console.log('matches')
+  // }else{
+  //   console.log('does not matches')
+  // }
+  // if (computerChoices== -1) {
+  //   console.log('computerGuess',computerGuess);
+  // }else {
+  //   console.log('its founnd')
+  // }
 
     if (userGuess === computerGuess) {
       wins++;
-      guessesLeft = 9;
-      guessesSoFar = [];
-      winsPlayer.innerText = "Wins: " + wins;
-      console.log(guessesSoFar);
+      guessesLeft--;
+      console.log("guessesleft",guessesLeft)
+      guessesSoFar.push(userGuess);
+      winsPlayer.innerHTML = "Wins: " + wins;
+      guessesLeftPlayer.innerHTML = "GuessLeft: " + guessesLeft;
+      console.log("user guess",guessesSoFar);
 
+    }else{
+      guessesLeft--;
+      console.log(guessesLeft)
+      guessesLeftPlayer.innerHTML = "GuessLeft: " + guessesLeft;
+    }
+    if(guessesLeft === 0){
+      alert("gameOver")
+      guessesLeft = 9
     }
 
-    if (userGuess != computerGuess) {
+    if (userGuess !== computerGuess) {
       guessesLeft--;
       guessesSoFar.push(userGuess);
       console.log(guessesSoFar);
       guessesSoFar.innertext = "Your Guesses So Far: " + guessesSoFar;
     }
 
-    if (guessesLeft === 0) {
+   if (guessesLeft === 0) {
       guessesLeft = 9;
       losses++;
-      guessesSoFar = [];
-      lossesPlayer.innerText = "Losses: " + losses;
-      guessesLeftPlayer.innerText = "Guesses Left: " + guessesLeft;
+      guessesSoFar.push(userGuess);
+      lossesPlayer.innerHTML = "Losses: " + losses;
+    guessesLeftPlayer.innerHTML = guessesSoFar;
       
 
-    }
+   }
   }
 
-}
+
 
