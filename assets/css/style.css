@@ -1,4 +1,8 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    
+    background: lightgray; 
+}
+
+#game{
+    padding-left: 50px;
 }
